@@ -3,13 +3,13 @@ import os
 import pathlib
 from functools import lru_cache
 
-from dotenv import dotenv_values
+from dotenv import dotenv_values, load_dotenv
 from pydantic_settings import BaseSettings
 
 
 class BaseConfig(BaseSettings):
     BASE_DIR: pathlib.Path = pathlib.Path(__file__).parent.parent
-    ASSETS_DIR: pathlib.Path = BASE_DIR / pathlib.Path("assets")
+    ASSETS_DIR: str = "assets"
     DEBUG: bool
     ENV: str = os.environ.get("FASTAPI_ENV", "development")
     APP_NAME: str
@@ -49,3 +49,4 @@ def get_settings():
 
 
 settings = get_settings()
+load_dotenv()
