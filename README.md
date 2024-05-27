@@ -1,3 +1,44 @@
+# Setup
+ 
+1. Clone the repository and navigate to the root folder in your terminal.
+```bash
+git clone git@github.com:erdem/python-coding-test.git
+```
+
+2. The project uses pre-commit to enforce code formatting and run linters before every commit. The pre-commit hooks configuration is stored in the .pre-commit-config.yaml file. Install the hooks before making any commit.
+
+```bash
+pre-commit install
+```
+
+3. Create a .env file (git ignored) by copying the [.env.example](.env.example) file.
+
+4. Install the project dependencies with poetry via call `make install` command.
+
+```shell
+make install
+```
+
+5. Run FastAPI dev server to explore the API
+
+```
+make dev
+```
+
+
+# Usage
+
+```shell
+curl --request POST \
+  --url http://localhost:8000/api/pdf-checker \
+  --header 'Content-Type: application/json' \
+  --data '{
+      "file_name": "retailco.pdf",
+      "company_name": "RetailCo"
+    }
+'
+```
+
 # Data discrepancy checker
 
 This task mirrors a system we recently built internally, and will give you an

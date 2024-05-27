@@ -28,9 +28,9 @@ class MissingInExtractedItem(BaseModel):
 
 
 class PDFCheckerResponse(BaseModel):
-    fields: List[FieldComparisonItem]
     missing_in_db: List[MissingInDBItem]
     missing_in_extracted: List[MissingInExtractedItem]
+    fields: List[FieldComparisonItem]
 
 
 class ErrorResponse(BaseModel):
