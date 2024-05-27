@@ -5,18 +5,18 @@
 git clone git@github.com:erdem/python-coding-test.git
 ```
 
-2. The project uses pre-commit to enforce code formatting and run linters before every commit. The pre-commit hooks configuration is stored in the .pre-commit-config.yaml file. Install the hooks before making any commit.
+2. Create a .env file (git ignored) by copying the [.env.example](.env.example) file.
 
-```bash
-pre-commit install
-```
-
-3. Create a .env file (git ignored) by copying the [.env.example](.env.example) file.
-
-4. Install the project dependencies with poetry via call `make install` command.
+3. Install the project dependencies with poetry via call `make install` command.
 
 ```shell
 make install
+```
+
+4. The project uses pre-commit to enforce code formatting and run linters before every commit. The pre-commit hooks configuration is stored in the .pre-commit-config.yaml file. Install the hooks before making any commit.
+
+```bash
+pre-commit install
 ```
 
 5. Run FastAPI dev server to explore the API
