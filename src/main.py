@@ -1,4 +1,5 @@
 import logging
+from os import path
 from typing import Callable
 
 import pandas as pd
@@ -42,7 +43,7 @@ def get_pdf_service_client() -> PdfService:
 
 
 def get_database_csv() -> list[dict]:
-    df = pd.read_csv("data/database.csv")
+    df = pd.read_csv(path.join(settings.BASE_DIR, "data/database.csv"))
     return df.to_dict(orient="records")
 
 

@@ -1,13 +1,9 @@
-from typing import List, Dict, Annotated
-
-from fastapi import APIRouter, status, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from src.api import schemas
-from src.api.services import PdfExtractorService, CompanyService
+from src.api.services import CompanyService, PdfExtractorService
 from src.config import settings
 from src.utils.pdf_data_comparer import compare_data
-from src.api.repositories import CompanyRepository
-
 
 router = APIRouter(prefix="/api")
 
@@ -15,7 +11,7 @@ router = APIRouter(prefix="/api")
 @router.post(
     "/pdf-checker",
     response_model=schemas.PDFCheckerResponse,
-    status_code=status.HTTP_201_CREATED,
+    status_code=status.HTTP_200_OK,
     responses={
         422: {"model": schemas.ErrorResponse, "description": "Invalid request body."},
     },
