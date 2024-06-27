@@ -39,41 +39,28 @@ curl --request POST \
 '
 ```
 
-# Data discrepancy checker
+# FastAPI PDF Data Checker
 
-This task mirrors a system we recently built internally, and will give you an
-idea of the problems we need to solve.
+This project demonstrates a FastAPI application that compares company data extracted from PDFs against existing records. It's designed to simulate a common business task: verifying information from multiple sources.
 
-Every quarter, new company data is provided to us in PDF format. We need to use
-an external service to extract this data from the PDF, and then validate it
-against data we have on file from another source.
+## What it does
 
-Complete the API so that:
+1. Extracts data from PDFs using a mocked external service
+2. Compares the extracted data with records stored in a CSV file
+3. Returns a summary of all fields, noting any discrepancies
 
-A user can provide a PDF and a company name data is extracted from the PDF via
-the external service and compared to the data stored on file a summary of the
-data is returned, containing all fields from both sources, noting which fields
-did not match.
+## Key components
 
-A selection of example PDFs have been uploaded, and the PDF
-extraction service has been mocked for use in `src/pdf_service.py` - DO NOT
-EDIT THIS FILE. There is simple documentation of the service in
-`PDF_SERVICE_DOCS.md`. You can treat this as just another microservice.
+- FastAPI for the API framework
+- A mocked PDF extraction service (`src/pdf_service.py`)
+- CSV file for storing existing company data (`data/database.csv`)
+- Data comparison and reporting logic
 
-The existing data we have on file is available in the `data/database.csv` file.
+## Technical aspects
 
-Treat this code as if it will be deployed to production, following best
-practices where possible.
+- Integration with an external service (simulated)
+- Data processing and comparison
+- Error handling and input validation
 
-## Setup using Poetry
+This project serves as an example of using FastAPI to process data and generate comparison reports. It's structured following good coding practices.
 
-The easiest way to set up the repository is to use `python-poetry`. The lock file
-was generated using version `1.8.3`
-
-1. Ensure `poetry` is installed
-2. Run `make install`
-
-## Setup without Poetry
-
-Alternatively it's possible to `pip install` directly using the
-`pyproject.toml` or `requirements.txt`.
